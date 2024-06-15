@@ -1,0 +1,152 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+.container * {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+figcaption {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+@media (min-width: 650px) {
+    .jump {
+        position: absolute;
+        top: -999px;
+
+    }
+
+    .jump:focus {
+        top: 0;
+    }
+
+    .container {
+        display: grid;
+        width: 95%;
+        justify-content: space-around;
+        max-width: none;
+        grid-template-columns: 25% 25% 25%;
+        background-image: url('../images/concrete_seamless.png');
+    }
+
+    .container * {
+        grid-column: span 2;
+    }
+
+    .container *:nth-child(odd) {
+        grid-column: 1;
+    }
+
+    .container *:nth-child(even) {
+        grid-column: 2;
+
+    }
+}
+
+
+@media (min-width: 750px) {
+    .container {
+        grid-template-columns: 20% 20% 20% 20%;
+        /* justify-content: space-between; */
+
+    }
+
+    .container *:nth-child(odd) {
+        grid-column: 1 / span 2
+    }
+
+    .container *:nth-child(even) {
+        grid-column: 3 / span 2
+    }
+
+    .container *:last-child {
+        grid-column: 2/ span 2;
+    }
+
+
+
+}
+
+@media (min-width: 900px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+   
+    .container * {
+        width: 20%;
+        height: 100%;
+    }
+
+
+    .container>*:nth-child(4n) {
+        width: 40%;
+        border: 10px solid;
+
+    }
+
+    .container figure :nth-child(2) {
+        order: 1;
+
+    }
+
+
+
+}
+
+@media (min-width: 1050px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+    .container>*:nth-child(2) {
+        order: 2;
+
+    }
+    figure {
+        width: 75%;
+        margin-bottom: 20px;
+    }
+    .container *{
+        grid-column: span 1;
+    }
+    .container *:last-child{
+        grid-column: span 2;
+    }
+    .container *:nth-child(even):not(:last-child) {
+        transform: rotate(15deg);
+    }
+    .container *:nth-child(odd):not(:last-child) {
+        transform: rotate(-15deg);
+    }
+
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+}
+.logo {
+    animation: fadeIn 10s;
+
+}
+@media (prefers-reduced-motion){
+    .logo{
+        animation: none;
+    }
+}
